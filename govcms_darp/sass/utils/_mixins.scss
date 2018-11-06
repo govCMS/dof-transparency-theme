@@ -1,0 +1,310 @@
+/**
+* Mixins
+*
+* Snippets of reusable CSS to develop faster and keep code readable
+*/
+
+// Rupture Sass debug
+@mixin debug-breakpoints {
+  body {
+    &::after {
+      @include font-size($base-font-size - 5);
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      z-index: 10000000;
+      padding: 7px 8px 7px 6px;
+      color: #fff;
+      text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.6);
+      border-radius: 0 3px 0 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      opacity: 0.8;
+      $breakpoint-values: map-get($rupture, scale);
+      $breakpoint-names: map-get($rupture, scale-names);
+      @each $breakpoint in $breakpoint-names {
+        $i: index($breakpoint-names, $breakpoint);
+        @media (min-width: nth($breakpoint-values, $i)) {
+          content: nth($breakpoint-names, $i);
+        }
+      }
+    }
+  }
+}
+
+// Font size in rem with pixel fall back for IE8
+@mixin font-size($size) {
+  font-size: $size + px;
+  //font-size: ($size / 18) + rem; // 18 is browser font size i.e. html { font-size: 100% }
+}
+
+// Color for links with 10% darker hover & focus color
+@mixin color($color) {
+  color: $color;
+  &:focus,
+  &:hover {
+    color: darken($color, 10%);
+  }
+}
+// Global transition
+@mixin transition($property: all) {
+  transition: all 0.4s ease-out;
+  &:hover, &:active, &:focus {
+    transition: all 0.1s ease;
+  }
+}
+// Add fallback for IE if necessary
+@mixin match-child-height() {
+  display: flex;
+}
+
+// News layout
+@mixin news-columns($number: 2, $nc-gutter: $gutter) {
+  column-count: $number;
+  column-gap: $nc-gutter;
+  > * {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin-bottom: $gutter;
+  }
+}
+
+// Clearfix
+.clearfix {
+  clear: fix;
+}
+
+@mixin clearfix {
+  &::after {
+      content: "";
+      clear: both;
+      display: table;
+  }
+}
+
+// Text overflow - Requires inline-block or block for proper styling
+%text-overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// CSS image replacement
+// @see: https://github.com/h5bp/html5-boilerplate/commit/aa0396eae757
+%hide-text {
+  font: 0/0 a;
+  color: transparent;
+  text-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+@mixin is-invisible {
+  @extend %hide-text;
+}
+
+//vertical align
+@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+// Makes an element visually hidden, but accessible
+// @see http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+@mixin element-invisible {
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+  // @if $legacy-support-for-ie6 or $legacy-support-for-ie7 {
+  //   clip: rect(1px 1px 1px 1px); // IE6 and IE7 use the wrong syntax
+  // }
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+// Turns off the element-invisible effect.
+@mixin element-invisible-off {
+  position: static !important;
+  clip: auto;
+  height: auto;
+  width: auto;
+  overflow: auto;
+}
+
+// Text overflow
+// Requires inline-block or block for proper styling
+@mixin text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin box-shadow ( $horiz : 0 , $vert : 0 , $blur : 5px , $spread : 0 , $color : $teal-dark ) {
+  box-shadow: $horiz $vert $blur $spread $color;
+}
+
+// Psuedo element mixin for placing elements before and after content
+@mixin ba($ba,$width,$height,$top,$left,$rel:true,$content:null) {
+  @if ($rel == true) {
+    position: relative;
+  }
+  &:#{$ba} {
+    position: absolute;
+    width:$width;
+    height:$height;
+    top:$top;
+    left:$left;
+    content: "#{$content}";
+    @content;
+  }
+}
+
+// Shorthand positoning of elements
+@mixin position($position, $args: ()) {
+  $offsets: top right bottom left;
+  position: $position;                                               // 1
+
+  @each $offset in $offsets {                                        // 3
+    $index: index($args, $offset);                                   // 4
+
+    @if $index {                                                     // 5
+      @if $index == length($args) {                                  // 6
+        #{$offset}: 0;                                               // 7
+      }
+      @else {                                                        // 8
+        $next: nth($args, $index + 1);                               // 9
+        @if is-valid-length($next) {                                 // 10
+          #{$offset}: $next;                                         // 11
+        }
+        @else if index($offsets, $next) {                            // 12
+          #{$offset}: 0;                                             // 13
+        }
+        @else {                                                      // 14
+          @warn "Invalid value `#{$next}` for offset `#{$offset}`."; // 15
+        }
+      }
+    }
+  }
+}
+
+@function is-valid-length($value) {
+  @return (type-of($value) == "number" and not unitless($value))
+  or (index(auto initial inherit 0, $value) != false);
+}
+
+@mixin absolute($args: ()) {
+  @include position(absolute, $args);
+}
+
+@mixin fixed($args: ()) {
+  @include position(fixed, $args);
+}
+
+@mixin relative($args: ()) {
+  @include position(relative, $args);
+}
+
+//Maintains aspect ration during re-sizing
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > * {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+//Duotone border
+@mixin border-duo-tone {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  border-width: 2px;
+  border-bottom-style: groove;
+}
+
+//trans
+@mixin menu-transition {
+  transition: all ease 0.3s;
+}
+
+//button
+@mixin button {
+  font-size: 1rem;
+  font-weight: $bold;
+  display: inline-block;
+  padding: 15px 80px 15px 20px;
+  border: 0;
+  border-radius: 35px;
+  background-position: center right 20px;
+  background: $black svg-load('../images/icon-arrow-long.svg', fill=$blue-bright) no-repeat center right 20px;
+  background-size: 15px 15px;
+  color: $white;
+  white-space: normal;
+  word-wrap: break-word;
+  border: $grey solid 1px;
+  box-shadow: 20px 12px 77px -24px rgba(0,0,0,0.6);
+  transition: all ease 0.3s;
+  &:focus, &:hover, &:active {
+    background: auto;
+    background: $blue-darkest svg-load('../images/icon-arrow-long.svg', fill=$blue-bright) no-repeat center right 15px;
+    border-color: $blue-darkest;
+    background-size: 15px 15px;
+    color: $white;
+    text-decoration: none;
+    transition: all ease 0.1s;
+  }
+}
+
+//book drop shadow
+@mixin book-shadow {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    background: url('../images/drop-shadow.png') no-repeat right bottom;
+    background-size: contain;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: -1;
+    width: 118%;
+    height: 130%;
+    mix-blend-mode: multiply;
+  }
+}
+
+@mixin link-underline-animation {
+  text-decoration: none;
+  background-image: linear-gradient(90deg, currentColor 100%, transparent 100%);
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.4s ease-out;
+  }
+  &:hover {
+    color: black;
+    &:after {
+      transform: scaleX(1);
+      transform-origin: bottom left;
+    }
+  }
+}

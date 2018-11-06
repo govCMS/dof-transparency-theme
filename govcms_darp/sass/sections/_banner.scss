@@ -1,0 +1,92 @@
+/**
+* Banner
+*
+* Banner used in annual report landing pages
+*/
+
+.node-type-annual-report, .node-type-annual-report-page {
+  .group-header {
+    position: absolute;
+    overflow: hidden;
+    top: 0;
+    right: 0;
+    left: 0;
+    @include from(tablet-l) {
+      top: -10px;
+      left: $gutter;
+      right: 0;
+      max-height: $banner-height;
+    }
+    @include below(tablet) {
+      position: relative;
+    }
+    .view-annual-report-header {
+      display: block;
+      min-height: 250px;
+      padding: $gutter $gutter $gutter ($gutter * 1.5);
+      .views-row {
+        padding-right: 20px !important;
+      }
+      .views-field-field-image img {
+        max-height: 60px;
+      }
+      .views-field-title {
+        margin: 1rem 0 2rem;
+        max-width: 800px;
+      }
+      .views-field-title span {
+        @extend %h1;
+        color: $white;
+        font-size: 1.8em;
+      }
+      @include to(tablet) {
+        padding: $gutter;
+      }
+    }
+    //banner images
+    .views-field-field-banner-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      * {
+        height: 100%;
+      }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        @include from(tablet-l) {
+          padding: 0 15px 0 15px;
+        }
+      }
+    }
+    .views-field-field-image, .views-field-title, .views-field-field-ar-file, .views-field-field-read-link {
+      position: relative;
+    }
+    .views-field-field-read-link, .views-field-field-ar-file {
+      display: inline-block;
+      margin-right: 1rem;
+      @include below(tablet-l) {
+        margin-bottom: 2rem;
+      }
+    }
+  }
+  .block-views-annual-report-header-block-1 {
+    max-height: 230px;
+  }
+}
+
+.logged-in .group-header {
+  top: -11px;
+}
+
+//white backgrounds
+.page-node-27, .page-node-28, .page-node-26, .page-node-30 {
+  .group-header .view-annual-report-header {
+    .views-field-title span {
+      color: black;
+    }
+  }
+}

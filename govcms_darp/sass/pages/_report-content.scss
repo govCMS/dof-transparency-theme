@@ -1,0 +1,80 @@
+/**
+* Page: Report content
+*
+* Report content page specific styling, imported from masterdocs
+*/
+
+.node-type-annual-report-page {
+  &.menu-open #page {
+    position: relative;
+  }
+  #main {
+    position: inherit;
+    max-width: 1400px;
+    margin: auto;
+  }
+  h1.page__title {
+    display: none;
+  }
+  h1.field-content {
+    @include from(tablet-l) {
+      max-width: 90%;
+    }
+    a {
+      @extend h1;
+      @include link-underline-animation;
+      background: none;
+    }
+  }
+  .views-field-title-1 {
+    position: relative;
+    margin-top: 1rem;
+    max-width: 800px;
+  }
+  #content {
+    padding: $gutter $gutter $gutter ($gutter * 3);
+    lost-column: 5/8;
+  }
+  aside {
+    padding-right: 3rem;
+    .region-sidebar-second {
+      padding: 0;
+    }
+    lost-column: 3/8;
+    margin-top: $banner-height/1.8;
+    position: relative;
+    @include at(desktop) {
+      lost-column: 3/8;
+    }
+  }
+  @include to(tablet-l) {
+    #content, aside {
+      lost-column: 1/1;
+    }
+    aside {
+      max-width: none;
+      margin: 0;
+      float: none;
+      padding: $gutter $gutter $gutter ($gutter * 3);
+    }
+  }
+  @include to(tablet) {
+    #content, aside {
+      padding: $gutter;
+    }
+  }
+  .group-left {
+    width: 100%;
+    padding: ($gutter * 1.5) $gutter $gutter $gutter;
+    @include from(tablet-l) {
+      margin-top: $banner-height/2 + 100px;
+    }
+  }
+  .view-annual-report-header > .view-content > .views-row-first {
+    min-height: 225px;
+  }
+  .ds-2col-stacked .bottom-wrapper {
+    max-width: 720px;
+    margin: 0;
+  }
+}

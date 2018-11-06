@@ -1,0 +1,111 @@
+/**
+* Sidebar
+*
+* Sidebar used for report menus
+*/
+
+aside {
+  .region-sidebar-second {
+    width: 100%;
+  }
+  > section {
+    float: none;
+    padding: ($gutter * 7) ($gutter * 4) 0;
+    width: 100%;
+  }
+  #block-block-1 {
+    margin-bottom: 5rem !important;
+    width: 100%;
+    @include from(desktop) {
+      max-width: 460px;
+      width: 100%;
+      float: left;
+    }
+    @include from(desktop-xl) {
+      max-width: 550px;
+      float: right;
+      width: 100%;
+    }
+  }
+  .sidebar {
+    .block .block__title,
+    .block .block__content {
+      background-image: inherit;
+      background: transparent;
+      color: $text-color;
+      padding: 0;
+    }
+    .block__content ul {
+      list-style: none;
+      padding: 0;
+      li {
+        color: $link-color;
+        font-size: $base-font-size + 2;
+        margin-bottom: .25rem;
+        position: relative;
+      }
+      a {
+        display: block;
+        color: $link-color;
+        padding: ($gutter / 2);
+      }
+      a:focus, a:hover, a:active {
+        color: white;
+        background-color: $blue !important;
+      }
+      > li ul > li {
+        font-size: $base-font-size - 2;
+        margin-bottom: 0;
+        a {
+          margin-left: $gutter;
+          padding: ($gutter/4) ($gutter / 2) ($gutter / 4) $gutter;
+          font-size: 16px;
+        }
+      }
+      li > ul > li > ul > li {
+        font-size: $base-font-size - 6;
+        a {
+          margin-left: ($gutter * 2);
+          padding: ($gutter / 2) ($gutter / 2) ($gutter / 2) $gutter;
+        }
+      }
+    }
+    .block__content ul#ar-nav {
+      > li > a {
+        padding: 15px 40px 15px 20px;
+        background-color: rgba($blue, .1);
+      }
+    }
+    .block__content ul:first-child > li > a.active,
+    .block__content ul a.active {
+      color: $white;
+      background-color: darken($primary-color, 10%) !important;
+    }
+  }
+}
+
+.node-type-annual-report-page .sidebar .block .block__content {
+  background: $white;
+  padding: ($gutter / 2);
+  box-shadow: 0px 0px 14px 10px rgba($black, .05);
+}
+
+//Max width for content page sidebar
+.node-type-annual-report-page {
+  aside {
+    .region-sidebar-second {
+      max-width: 390px;
+      float: left;
+      @include to(tablet-l) {
+        max-width: 100%;
+        padding: 0;
+      }
+    }
+  }
+}
+
+.node-type-annual-report #block-block-1 {
+  @include from(desktop) {
+    width: 80%;
+  }
+}

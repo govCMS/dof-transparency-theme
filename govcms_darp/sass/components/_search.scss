@@ -1,0 +1,101 @@
+/**
+* Component: Search
+*
+* Search form styling
+*/
+
+// overide GOVCMS default styling
+.search-form .form-submit {
+  line-height: 1.15;
+  height: auto;
+}
+
+.block-search,
+.block-search-api-page,
+.search-form  {
+    display: block;
+    width: 100% !important;
+    input.form-text {
+      border: 1px solid $grey-light;
+      border-radius: 35px;
+      font-size: 1rem;
+      height: 50px;
+      min-width: auto;
+      padding: 0 $size - 2px 0 10px;
+      &::placeholder {
+        font-size: 16px;
+      }
+    }
+    input:-webkit-input-placeholder {
+      color: #65737e;
+    }
+    input:-moz-placeholder {
+      color: #65737e;
+    }
+    input:-ms-input-placeholder {
+      color: #65737e;
+    }
+    .form-submit {
+      @include transition;;
+      background-image: svg-load('../images/icon-search.svg', fill=$blue-bright);
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-color: $black;
+      background-size: 20px 20px;
+      border: 1px solid $grey-light;
+      border-radius: 50%;
+      font-size: 0;
+      margin: 3px;
+      padding: 0;
+      box-shadow: none;
+      font-weight: bold;
+      height: $size - 1px;
+      width: $size - 1px;
+      &:hover,
+      &:focus {
+        background-image: svg-load('../images/icon-search.svg', fill=$black);
+        background-color: lighten($grey-light,5%);
+        background-size: 20px 20px;
+        background-position: center center;
+      }
+    }
+  }
+
+  // Annual report exposed search filter
+  .views-widget .form-item-field-entity-tid {
+    max-width: 500px;
+    width: 100%;
+  }
+  .views-widget .form-item-field-entity-tid input[type=text] {
+    min-width: 250px;
+    background-repeat: no-repeat;
+    background-position: left 20px center;
+    background-color: $white;
+    background-size: 20px;
+    padding: 15px 20px 15px 50px;
+    width: 100%;
+  }
+
+//temporary search form styling search results page
+#search-api-page-search-form  {
+  border: 0;
+  padding: 0;
+  position: relative;
+  .form-item {
+    margin: 0;
+    label {
+      font-size: 0;
+      margin: 0;
+    }
+  }
+  input.form-text {
+    float: none;
+    margin: 0;
+    min-width: 100%;
+  }
+  .form-submit {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+}

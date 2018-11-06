@@ -1,0 +1,75 @@
+/**
+* Global
+*
+* Global styling for layouts and images
+*/
+
+//comment out for production sites, helpful for developement
+// @include debug-breakpoints;
+
+body.admin-menu.adminimal-menu:before {
+  height: 0;
+}
+
+#page {
+  max-width: none;
+  box-shadow: none;
+  background: $blue-lightest;
+  min-height: 100vh;
+  margin-top: 0;
+  @include menu-transition;
+  transform: translateX(0);
+  @include from(tablet-l) {
+    margin-left: $sidebar-width;
+  }
+}
+
+#content {
+  max-width: 1100px;
+  padding: ($gutter * 3) $gutter $gutter 50px;
+  width: 100%;
+  @include to(tablet) {
+    padding: ($gutter * 3) $gutter $gutter $gutter;
+  }
+}
+
+//skip link
+#skip-link {
+  color: white;
+
+}
+
+//Page position for 'menu open' state
+.menu-open #page {
+  transform: translateX(-240px);
+  @include menu-transition;
+  overflow-y: hidden;
+  height: 100vh;
+  position: fixed;
+  &:before {
+    content: '';
+    display: block;
+    background: black;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    position: absolute;
+    z-index: 99;
+    opacity: 0.2;
+  }
+}
+
+//ie image cover fix - JS injects a background image wrapper on the element
+.img-cover-processed {
+  .img-cover-wrapper {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+  }
+  img {
+    display: none !important;
+  }
+}

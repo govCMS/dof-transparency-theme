@@ -1,0 +1,37 @@
+/**
+* Base
+*
+* Base styling used as a default throughout the site
+*/
+body {
+ background-color: $black-light;
+ color: $text-color;
+ margin: 0;
+ width: 100%;
+}
+
+//links
+a {
+  @include transition;
+  color: $link-color;
+  font-weight: $bold;
+  text-decoration: none;
+  &:hover, &:active, &:focus {
+    color: $link-color-hover;
+    transition: 0s;
+  }
+}
+
+//hide print information on default
+.print-page-title, .print-page-path {
+  display: none;
+}
+
+
+//links within content area
+#content .field-name-body a {
+  color: $link-color;
+  font-weight: $bold;
+  text-shadow: 1px 1px $blue-lightest, -1px 1px $blue-lightest, -1px -1px $blue-lightest, 1px -1px $blue-lightest;
+  @include link-underline-animation;
+}

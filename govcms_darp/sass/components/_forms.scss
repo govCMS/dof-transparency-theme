@@ -1,0 +1,259 @@
+/**
+* Component: Forms
+*
+* Forms, webforms
+*/
+
+input[type=text],
+input[type=password],
+input[type=email],
+input[type=url],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=datetime],
+input[type=datetime-local],
+input[type=week],
+input[type=number],
+input[type=search],
+input[type=tel],
+input[type=color],
+.form-text,
+select,
+textarea {
+  background-color: $white;
+  opacity: 1;
+  border: 1px solid $border-color;
+  border-radius: 35px;
+  color: $text-color;
+  height: auto;
+  max-width: 500px;
+  min-height: $gutter * 2;
+  padding: ($gutter - 5) ($gutter * 2) ($gutter - 5) ($gutter / 1.5);
+  width: 100%;
+  &:focus {
+    border-color: $grey;
+  }
+}
+select,
+input[type=text] {
+  -webkit-appearance: none;
+  background-color: $white;
+  width: 100%;
+}
+.form-type-select {
+  position: relative;
+  &::after {
+    content: '';
+    background: no-repeat right 15px center;
+    background-image: svg-load('../images/icon_arrow-down.svg', fill=$blue);
+    background-size: 15px 15px;
+    pointer-events: none;
+    height: 100%;
+    width: 50px;
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    top: 0;
+    transition: 0.3s ease all;
+  }
+  &::before {
+    content: '';
+    background: white;
+    background-image: linear-gradient(to right, rgba($white, 0) , $white 50%);
+    background-size: 100%;
+    border-radius: 0 35px 35px 0;
+    pointer-events: none;
+    height: calc(100% - 2px);
+    width: 70px;
+    position: absolute;
+    z-index: 1;
+    right: 1px;
+    top: 1px;
+    transition: 0.3s ease all;
+  }
+  &:hover {
+    &:before {
+      transition: 0.1s ease all;
+      background: $blue;
+      background-image: linear-gradient(to right, rgba($blue, 0) , $blue 50%);
+    }
+    &:after {
+      transition: 0.1s ease all;
+      background-image: svg-load('../images/icon_arrow-down.svg', fill=$white);
+    }    
+  }
+}
+fieldset {
+  margin-bottom: 1.5em;
+  padding: 0;
+  border: 0;
+  fieldset {
+    margin-bottom: 0;
+  }
+}
+form fieldset:last-of-type {
+  margin-bottom: 0;
+}
+.fieldset-description {
+  margin-bottom: 1.5em;
+}
+.grippie {
+  max-width: 500px; // same max as inputs
+}
+legend {
+  padding: 0;
+  @include font-size($base-font-size + 2);
+  font-weight: 600;
+  border-bottom: 1px solid $border-color;
+  display: block;
+  width: 100%;
+  margin-bottom: 1.5em;
+}
+label {
+  display: block;
+  margin-bottom: 0.5em;
+}
+
+// Placeholders. Keep as seperate selectors or it won't work
+.placeholder {
+  color: darken($grey, 20%);
+  opacity: 0.5 !important;
+}
+
+::placeholder {
+  font-style: italic;
+}
+
+::-webkit-input-placeholder {
+  color: darken($grey, 20%);
+  opacity: 1 !important
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: darken($grey, 20%);
+  opacity: 1 !important
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: darken($grey, 20%);
+  opacity: 1 !important
+}
+
+:-ms-input-placeholder {
+  color: darken($grey, 20%);
+  opacity: 1 !important
+}
+
+
+/*
+* Drupal classes
+*/
+
+.form-item {
+  margin-bottom: 1.5em;
+}
+.form-managed-file .form-submit {
+  background-color: $grey;
+  &:hover {
+    background-color: $action-color-hover;
+  }
+}
+.description {
+  @include font-size($base-font-size - 2);
+  color: lighten($text-color, 30%);
+  margin: 0.75em 0;
+}
+.form-type-checkbox {
+  margin-bottom: 0;
+  label {
+    font-weight: 400;
+  }
+}
+.form-type-radio  {
+  margin-bottom: 0;
+}
+.form-radios label,
+label.option {
+  display: inline;
+}
+.form-managed-file .form-file {
+  display: inline;
+  width: auto;
+}
+.form-type-date select {
+  width: auto;
+}
+
+/*
+* Webform
+*/
+
+.webform-client-form {
+  .form,
+  .form-item {
+    margin: 1rem 0 1.5rem 0;
+    label {
+      margin: 0 0 .5rem 0;
+    }
+  }
+  .form-item {
+    position: relative;
+    > label {
+      font-weight: bold;
+    }
+    .label-inline {
+      display: inline;
+    }
+    textarea {
+      box-shadow: none;
+      border: 1px solid $border-color;
+      padding: 10px;
+      border-radius: 0;
+    }
+    input[readonly="readonly"] {
+      background-color: #fcfcfc;
+      border-color: $border-color;
+    }
+  }
+
+  .webform-component-checkboxes,
+  .webform-component-radios {
+    input {
+      padding-top: 2px;
+    }
+    &.form-item {
+      .form-item {
+        margin-bottom: 0;
+        label {
+          font-weight: normal;
+          margin-bottom: 0;
+        }
+        .form-type-checkbox {
+          margin: 0;
+          padding: 10px 0 10px 5px;
+        }
+      }
+    }
+  }
+
+  .form-item-clear {
+    width: auto;
+    border: 0;
+    padding: 0;
+    font-weight: bold;
+  }
+  .webform-component-date .form-select,
+  .webform-component-time .form-select {
+    width: auto;
+  }
+  .webform-component-textarea .grippie {
+    display: none;
+  }
+}
+
+//Devel menu
+
+.tabs-primary {
+  padding: 0;
+}

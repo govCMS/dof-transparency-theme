@@ -1,0 +1,54 @@
+/**
+* Component: Button
+*
+* General button styling
+*/
+
+.body:not(.section-tools) button:not(#offscreen-menu),
+html input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.form-submit {
+  @include button;
+}
+
+.views-field-field-ar-file {
+  a {
+    @include button;
+    background-image: url('../images/icon-download.svg');
+    background-size: 20px 20px;
+    background-position: center left 15px;
+    padding: 10px 20px 10px 50px;
+    transition: all ease 0.1s;
+    color: white;
+    &:focus, &:hover, &:active {
+      @include transition;
+      background: auto;
+      background-image: url('../images/icon-download.svg');
+      background-color: $blue-darkest;
+      background-size: 20px 20px;
+      background-position: center left 15px;
+      text-decoration: none;
+      a, span.file-size {
+        transition-duration: 0s;
+        color: $white;
+      }
+    }
+  }
+  span.file-size, .file-icon {
+    display: none;
+  }
+}
+
+// Annual report read link button
+.views-field-field-read-link a {
+  @include button;
+  color: $action-color;
+  background-image: none;
+  background-color: $white;
+  border: solid 1px $grey-light;
+  padding: 10px 40px;
+  &:focus, &:hover, &:active {
+    background-image: none;
+  }
+}

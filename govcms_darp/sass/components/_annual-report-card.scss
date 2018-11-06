@@ -1,0 +1,65 @@
+/**
+* Component: Annual report card
+*
+* Annual report compact viewmode used on homepage
+*/
+
+.views-field-rendered-entity {
+  //wrapper link
+  .node-wrapper-link {
+    @include transition;
+    display: block;
+    background: transparent;
+    padding: $gutter;
+    border: 2px solid transparent;
+    &:hover, &:focus, &:active {
+      background-color: darken($blue-lightest, 5%);
+      border-color: darken($blue-lightest, 10%);
+      transform: translateY(-5px);
+      .field-name-field-reporting-year .taxonomy-term-description > * {
+        color: $action-color;
+      }
+    }
+  }
+  .node-annual-report {
+    text-align: center;
+    .field {
+      margin-bottom: 0;
+    }
+    // Image
+    .field-name-field-ar-image {
+      float: none;
+      margin: 0;
+      width: 100%;
+      @include book-shadow;
+      img {
+        margin: 0 auto;
+      }
+    }
+    @include from(tablet) {
+      .field-name-field-ar-image img {
+        max-width: 70%;
+      }
+    }
+    // Entity
+    .field-name-field-entity {
+      color: $text-color;
+      font-weight: $fat;
+      font-size: $base-font-size - 2;
+    }
+    // Title
+    .field-name-field-reporting-year .taxonomy-term-description > * {
+      display: inline;
+      color: $text-color;
+      margin: 0;
+      font-size: $base-font-size - 2;
+      line-height: 1;
+      &:after {
+        @include transition;
+        @extend %link-internal__icon;
+        transform: translateX(0);
+        -ms-transform: translateX(0);
+      }
+    }
+  }
+}

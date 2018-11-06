@@ -1,0 +1,82 @@
+ /**
+ * Component: Hamburger menu
+ *
+ * Hamburger / offscreen menu styling
+ */
+
+.hamburger {
+  padding: 15px 15px;
+  display: inline-block;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+  text-transform: none;
+  background-color: transparent;
+  border: 0;
+  margin: 0;
+  overflow: visible;
+  position: absolute;
+  right: 0;
+  z-index: 150;
+  @include from(tablet-l) {
+    display: none;
+  }
+  &:focus {
+    outline: none;
+  }
+  &:hover {
+    opacity: 0.7;
+  }
+}
+
+.hamburger-box {
+  width: 40px;
+  height: 24px;
+  display: inline-block;
+  position: relative;
+}
+
+.hamburger-inner {
+  display: block;
+  top: 50%;
+  margin-top: -2px;
+}
+
+.hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
+  width: 40px;
+  height: 4px;
+  background-color: white;
+  border-radius: 4px;
+  position: absolute;
+  transition-property: transform;
+  transition-duration: 0.15s;
+  transition-timing-function: ease;
+}
+//hamburger lines
+.hamburger-inner {
+  &:before, &:after {
+    content: "";
+    display: block;
+  }
+  &:before {
+    top: -10px;
+  }
+  &:after {
+    bottom: -10px;
+  }
+}
+.menu-open .hamburger {
+  transition: all ease 0.5s;
+  .hamburger-inner {
+    transform: rotate(-45deg);
+    transform-origin: bottom;
+    transition: all ease 0.5s;
+  }
+  .hamburger-inner::before {
+    opacity: 0;
+  }
+  .hamburger-inner::after {
+    transform: rotate(90deg);
+    top: 0;
+  }
+}

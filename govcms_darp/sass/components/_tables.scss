@@ -1,0 +1,191 @@
+/**
+* Component: Tables
+*
+* General table styling
+*/
+
+table {
+  background-color: $white;
+  border: 0 solid transparent;
+  table-layout: fixed;
+  hyphens: auto;
+  min-width: 100%;
+  caption {
+    text-align: left;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+  thead {
+    background: $blue;
+    color: white;
+  }
+  tbody {
+    tr:nth-child(2n) {
+      background: $grey-lightest;
+    }
+  }
+  th {
+   font-weight: $bold;
+   text-align: left;
+ }
+ td {
+   vertical-align: top;
+   //border-bottom: 1px solid $grey-lightest;
+   word-break: keep-all;
+ }
+ td,
+ th {
+   &:last-of-type {
+     text-align: right;
+   }
+   > * {
+     margin: 0;
+   }
+ }
+ a {
+  word-break: break-all;
+ }
+
+ // Cells
+ > tbody,
+  > tfoot,
+  > thead {
+   > tr {
+     > td,
+     > th {
+       padding: ($gutter / 2);
+       vertical-align: top;
+       border-bottom: 1px solid $border-color;
+     }
+   }
+ }
+ // Bottom align for column headings
+ > thead > tr > th {
+   vertical-align: bottom;
+   border: 0;
+ }
+ // Remove top border from thead by default
+ > colgroup + thead,
+  > thead:first-child,
+ > caption + thead {
+   > tr:first-child {
+     > td,
+     > th {
+       border-top: 0;
+     }
+   }
+ }
+ // Account for multiple tbody instances
+ > tbody + tbody {
+   border-top: 2px solid $border-color;
+ }
+ // Nesting
+ table {
+   background-color: #fff;
+   margin-bottom: 0;
+ }
+ tbody {
+   border: 0;
+ }
+}
+
+
+// Responsive tables.
+// Tables in node content are wrapped with a div with class "table-responsive" via js in scripts.js
+
+.table-responsive {
+ width: 100%;
+ overflow-y: auto;
+}
+
+// add scrollbar for iOS so that a user can tell the table scrolls
+.table-responsive::-webkit-scrollbar {
+ -webkit-appearance: none;
+ width: 14px;
+ height: 14px;
+}
+.table-responsive::-webkit-scrollbar-thumb {
+ border-radius: 8px;
+ border: 3px solid $white;
+ background-color: rgba($black, .3);
+}
+// Bordered version
+// Add borders all around the table and between all the columns.
+
+.table-bordered {
+ border: 1px solid $border-color;
+
+ > tbody,
+  > tfoot,
+ > thead {
+   > tr {
+     > td,
+     > th {
+       border: 1px solid $border-color;
+       padding: 5px;
+     }
+   }
+ }
+}
+.table-striped {
+ .odd-row,
+ > tbody > tr:nth-child(odd) {
+   background-color: #f2f2f2;
+ }
+ td,
+ th {
+   border: 0;
+ }
+}
+.table-striped-vertical {
+ .odd-column,
+ td:nth-child(odd),
+ th:nth-child(odd) {
+   background-color: #f2f2f2;
+ }
+ td,
+ th {
+   border: 0;
+ }
+}
+.table-vertical {
+ td,
+ th {
+   border-top: 0;
+   border-bottom: 0;
+   border-right: 1px solid $border-color;
+ }
+ tr td:last-child,
+ tr th:last-child {
+   border: 0;
+ }
+}
+.table-unstyled {
+ > tbody,
+  > tfoot,
+ > thead {
+   > tr {
+     > td,
+     > th {
+       padding: 0;
+       vertical-align: top;
+       border: 0;
+     }
+   }
+ }
+}
+
+//overflow table
+.md-table-wrapper {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 15px;
+    height: 100%;
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgb(239, 241, 242) 100%);
+    pointer-events: none;
+  }
+}

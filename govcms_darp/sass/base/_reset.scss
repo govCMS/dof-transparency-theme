@@ -1,0 +1,14 @@
+/**
+* Reset
+*
+* Resets browser and drupal default styles
+*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+//gov cms default border top
+.pane-block .views-row, .search-results li, #content .views-row {
+  border-top: 0;
+}

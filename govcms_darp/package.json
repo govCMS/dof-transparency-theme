@@ -1,0 +1,26 @@
+{
+  "name": "oxide-base",
+  "version": "1.0.1",
+  "description": "Make sure you have a good look around before getting started, especially have a look at:",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "browser-sync": "^2.23.6",
+    "gulp": "^3.9.1",
+    "gulp-notify": "^3.2.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-postcss": "^7.0.1",
+    "gulp-sass": "^3.2.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "lost": "^8.2.1",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-inline-svg": "^3.1.1",
+    "postcss-svgo": "^4.0.0",
+    "rucksack-css": "^1.0.2",
+    "rupture-sass": "^0.3.0"
+  }
+}

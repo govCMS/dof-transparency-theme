@@ -1,0 +1,72 @@
+/**
+* Component: Accordian
+*
+* Accordian / expanding div styling
+*/
+.menu__item.is-expanded.expanded {
+  position: relative;
+}
+.menu-collapser {
+  @include transition;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: svg-load("../images/icon_arrow-down.svg", fill=$green-dark);
+  background-size: 10px 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  width: 1rem;
+  height: 1rem;
+  padding: 25px;
+  transform: rotate(-90deg);
+}
+.is-active-trail {
+  .menu-collapser {
+    background: svg-load("../images/icon_arrow-down.svg", fill=$white);
+  }
+}
+
+#ar-nav > li {
+  @include transition;
+  .menu-collapser:hover {
+    background: svg-load("../images/icon_arrow-down.svg", fill=$link-color-hover);
+    transform: rotate(0deg);
+    background-size: 10px 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+  }
+  &.is-active-trail:hover .menu-collapser {
+    background: svg-load("../images/icon_arrow-down.svg", fill=$white);
+  }
+}
+
+
+#ar-nav {
+  margin-top: 0;
+}
+.menu-collapser-collapsed .menu-collapser {
+  transform: scale(1) rotate(0deg);
+}
+
+*[aria-expanded="false"] > .item-list > ul {
+  //sub menu hidden
+  overflow: hidden;
+  padding: 0 1em;
+  max-height: 0;
+  transition: all 0.5s ease;
+}
+
+*[aria-expanded="true"] > .item-list > ul {
+  //sub menu visible
+  max-height: 2000px;
+  padding: 15px 20px;
+  overflow: hidden;
+  transition: all 1s ease-in-out;
+}
+
+//show menu if child active
+.active-parent-expand > .item-list > ul {
+  display: block;
+}

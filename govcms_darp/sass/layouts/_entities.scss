@@ -1,0 +1,202 @@
+/**
+* Entities
+*
+* Entity specific styling to override base report styling
+*
+* Entities include: Health, Finance, Parliamentaty Services,
+*   Senate, Treasury, Human Services, ABS, DFAT, education and training,
+*   Digital transformation, NHFB, House of reps, Prime minister cabinet,
+*   ATO,
+*/
+
+/*-------------------------------*/
+/*            Health             */
+/*-------------------------------*/
+$health-color: $black;
+$health-font: undefined;
+body.entity__department-of-health {
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $health-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*            Finance            */
+/*-------------------------------*/
+$finance-color: $black;
+$finance-font: 'arialregular';
+$finance-heading: 'arialbold';
+body.entity__department-of-finance {
+  #page {
+    font-family: $finance-font !important;
+    h1, h2, h3 {
+      font-family: $finance-heading !important;
+    }
+  }
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $finance-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*     Parliamentary Services    */
+/*-------------------------------*/
+$parliament-services-color: $white;
+$parliament-services-font: "open-sans",sans-serif;
+body.entity__department-of-parliamentary-services {
+  #page {
+    font-family: $parliament-services-font !important;
+  }
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 *, .views-field-title-1 * {
+    color: $parliament-services-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*            Senate             */
+/*-------------------------------*/
+$senate-color: $white;
+$senate-font: "museo", serif;
+body.entity__department-of-the-senate {
+  #page {
+    font-family: $senate-font !important;
+  }
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $senate-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*           Treasury            */
+/*-------------------------------*/
+$treasury-color: $black;
+$treasury-font-h1: "roboto-slab";
+$treasury-font-h2: "fira-sans",sans-serif;
+$treasury-font: "source-sans-pro",sans-serif;
+body.entity__department-of-the-treasury {
+  #page {
+    font-family: $senate-font !important;
+    h1 {
+      font-family: $treasury-font-h1 !important;
+    }
+    h2 {
+      font-family: $treasury-font-h2 !important;
+    }
+  }
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $treasury-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*        Human Services         */
+/*-------------------------------*/
+$dhs-color: $black;
+$dhs-font: undefined;
+body.entity__department-of-human-services {
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $dhs-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*             ABS               */
+/*-------------------------------*/
+$abs-color: $black;
+$abs-font: 'arialregular';
+$abs-heading: 'arialbold';
+body.entity__australian-bureau-of-statistics {
+  #page {
+    font-family: $abs-font !important;
+    h1, h2, h3 {
+      font-family: $abs-heading !important;
+    }
+  }
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $abs-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*             DFAT              */
+/*-------------------------------*/
+$dfat-color: $black;
+$dfat-font: 'Ubuntu', sans-serif;
+$dfat-heading: 'Dosis', sans-serif;
+body.entity__department-of-foreign-affairs-and-trade {
+  #page {
+    font-family: $dfat-font !important;
+    h1, h2, h3 {
+      font-family: $dfat-heading !important;
+    }
+  }
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $dfat-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*    Education and training     */
+/*-------------------------------*/
+$edutrain-color: $white;
+$edutrain-font: undefined;
+body.entity__department-of-education-and-training {
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $edutrain-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*    Digital transformation     */
+/*-------------------------------*/
+$digtrans-color: $white;
+$digtrans-font: undefined;
+body.entity__digital-transformation-agency {
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $digtrans-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*            NHFB               */
+/*-------------------------------*/
+$nhfb-color: $black;
+$nhfb-font: undefined;
+body.entity__national-health-funding-body {
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $nhfb-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*       House of reps           */
+/*-------------------------------*/
+$reps-color: $white;
+$reps-font: undefined;
+body.entity__department-of-the-house-of-representatives {
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $reps-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*   Prime minister cabinet      */
+/*-------------------------------*/
+$cabinet-color: $white;
+$cabinet-font: undefined;
+body.entity__department-of-the-prime-minister-and-cabinet {
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $cabinet-color !important;
+  }
+}
+
+/*-------------------------------*/
+/*             ATO               */
+/*-------------------------------*/
+$ato-color: $white;
+$ato-font: undefined;
+body.entity__australian-taxation-office {
+  .group-header .view-annual-report-header .views-field-title span, .views-field-title-1 * {
+    color: $ato-color !important;
+  }
+}

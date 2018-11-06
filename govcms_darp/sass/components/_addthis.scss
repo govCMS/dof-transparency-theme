@@ -1,0 +1,21 @@
+/**
+* Component: Addthis
+*
+* Share links styling
+*/
+
+//add this sharing
+#at-share-dock {
+  @include menu-transition;
+}
+
+.menu-open #at-share-dock {
+  @include menu-transition;
+  left: -242px;
+  position: fixed;
+}
+
+//inline sharing
+body .share-this-popover:before {
+  margin: 5px -.5em;
+}

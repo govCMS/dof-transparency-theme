@@ -1,0 +1,110 @@
+/**
+* Variables
+*
+* Variable declarations used sitewide
+*/
+
+// Layout
+$container-width: 1200px; // max-width
+$containter-large-width: $container-width + 325px;
+$sidebar-width: 240px;
+$banner-height: 350px;
+
+// Lost Grid - PostCSS
+// https://github.com/peterramsing/lost
+$gutter: 20px;
+$size: 45px;
+//Rounder adjusted to 99.9 to avoid edge rounding
+@lost rounder 99.99;
+@lost gutter #{$gutter};
+
+// Rupture - Breakpoint Slicer improved
+// https://github.com/CubaSAN/rupture-sass
+$rupture: map-merge($rupture, (
+  mobile-cutoff: 480px,
+  desktop-cutoff: 1024px,
+  hd-cutoff: 1200px,
+  scale:       0            390px         480px          768px          1024px         1200px,
+  //           └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────┘ └────┬────→
+  scale-names:  'mobile-s'  'mobile'    'tablet'   'tablet-l'   'desktop' 'desktop-xl',
+  anti-overlap: true
+));
+
+// Color palette
+$white:           #FFF;
+$grey-lightest:   #f4f7f9;
+$grey-light:      #dddddd;
+$grey:            #707070;
+$grey-dark:       #3c3c3b;
+$black:           #000;
+$black-light:     #212429;
+$green:           #00da91;
+$green-dark:      #01827f;
+$blue-lightest:   #eff1f2;
+$blue-light:      #0ba2b7;
+$blue-bright:     #20c5ff;
+$blue:            #007099;
+$blue-dark:       #104f71;
+$blue-darkest:    #003450;
+$pink:            #e44554;
+$orange:          #ff733d;
+$red-alert:       #d9534f;
+
+// Colors
+$primary-color: $blue;
+$secondary-color: $blue-light;
+$tertiary-color: $grey-lightest;
+$text-color: $black;
+
+// Forms
+$form-text-color: lighten($black, 10%);
+$form-background: lighten($grey-lightest, 10%);
+$form-inset: lighten($grey-light, 10%);
+$tabs-primary-height: 80px;
+
+// Elements
+$action-color: $primary-color; // e.g. buttons
+$action-color-hover: $secondary-color;
+
+// Borders
+//client request
+$border-radius: 3px;
+$border-radius-top: 3px 3px 0 0;
+$border-color: darken($grey-lightest, 10%);
+
+// Links
+$link-color: $primary-color;
+$link-color-hover: $secondary-color;
+
+// Font stuff
+$base-font-family: "source-sans-pro", Arial, sans-serif;
+$heading-font-family: "source-sans-pro", $base-font-family;
+$base-font-size: 18;
+$base-line-height: 1.5;
+$heading-line-height: 1.3;
+$character-font-family: 'Paytone One', sans-serif;
+
+// Custom base font sizes
+$base-font-size-mobile-s:   12;
+$base-font-size-tablet-l:   14;
+$base-font-size-desktop-l:  16;
+
+// font-weight
+$light: 300;
+$normal: 400;
+$bold: 500;
+$fat: 700;
+
+$h1_font_size: $base-font-size + 17;
+$h2_font_size: $base-font-size + 16;
+$h3_font_size: $base-font-size + 6;
+$h4_font_size: $base-font-size + 2;
+$h5_font_size: $base-font-size;
+$h6_font_size: $base-font-size;
+
+$h1_color: $text-color;
+$h2_color: $text-color;
+$h3_color: $text-color;
+$h4_color: $text-color;
+$h5_color: $text-color;
+$h6_color: $text-color;

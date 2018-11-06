@@ -1,0 +1,54 @@
+/**
+* Mobile header
+*
+* Header visible when main menu collapses at mobile
+*/
+
+#mobile-header {
+  background: $black-light;
+  width: 100%;
+  padding: 1rem;
+  transform: translateX(0);
+  @include menu-transition;
+  @include from(tablet-l) {
+    display: none;
+  }
+  .header__logo {
+    float: none;
+    img {
+      max-width: 115px;
+      display: inline-block;
+      margin-right: 1rem;
+    }
+    h2, h1 {
+      display: inline-block;
+      color: white;
+      margin: 0;
+      font-size: 1.3rem;
+      margin-bottom: 27px;
+      transform: translateY(50%);
+    }
+  }
+  @include below(mobile) {
+    .header__logo {
+      img {
+        max-width: 80px;
+      }
+      h2, h1 {
+        font-size: 1rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
+}
+
+.menu-open {
+  #mobile-header {
+    transform: translateX(-240px);
+    @include menu-transition;
+    overflow-y: hidden;
+  }
+  #main-menu {
+    padding-top: 3rem;
+  }
+}

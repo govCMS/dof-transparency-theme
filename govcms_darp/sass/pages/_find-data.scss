@@ -1,0 +1,339 @@
+/**
+* Page: Find data
+*
+* Find data page specific styling
+*/
+
+.section-find-data {
+  #content {
+    max-width: 1200px;
+  }
+  #analysis-tool-root, .css-ubg224 {
+    font-family: $base-font-family !important;
+  }
+  .contentBody {
+    background-color: transparent;
+  }
+  // title
+  .selectedDepartmentsSelectedText {
+    font-size: 24px;
+    line-height: 1.3;
+    color: #000;
+    margin-bottom: 0.5em;
+  }
+  // tool search bar
+  .departmentDropdownSelect {
+    margin-bottom: 1rem;
+    white-space: nowrap;
+  }
+  .tp-sidemenu:hover {
+    color: black;
+  }
+  .tp-department.tp-department-excess {
+    color: black;
+  }
+   .css-1r9sctd, .css-10t87cv, .department-form-wrapper {
+    padding: 0 0 0 3rem;
+    font-size: 16px;
+     * {
+       color: $grey-dark;
+       font-weight: 400;
+     }
+    &:before {
+      top: 26px;
+      left: 22px;
+      position: absolute;
+      color: $grey-dark;
+    }
+  }
+  // portfolio drop down
+  .tp-portfolio-drop-down__value-container, .css-1rtrksz {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  // columns drop down
+  .css-a4gq6l, .css-495ya6 {
+    padding: 5px;
+  }
+  .css-1rtrksz::before, .css-1euix40::before, .css-1vvbqjd::before, .tp-portfolio-drop-down__control:before  {
+    font-size: 24px;
+  }
+  @include below(1070px) {
+    .contentBodyContainer {
+      flex-wrap: wrap-reverse;
+    }
+  }
+  @include below(desktop) {
+    .queryContent {
+      flex-wrap: wrap;
+    }
+    //dep and agencies block
+    .queryLeft {
+      border: none;
+    }
+    .queryRight {
+      margin-top: 1rem;
+    }
+    //search dep and portfolios
+    .css-2imjyh > * {
+      margin-left: 0;
+      > * {
+        margin-bottom: 0;
+      }
+    }
+  }
+  //drop down sidebar wrapper
+  .css-z03oyf, .css-1jgc461, .contentSideMenuContainer {
+    padding: 0 1rem;
+    max-width: 100%;
+    background-color: transparent !important;
+    //closed arrow
+    .css-1evgrfg {
+      &:after {
+        transform: rotate(-90deg);
+        top: 16px;
+      }
+    }
+    //open arrow
+    .css-1lsgxng {
+      &:after {
+        transform: rotate(0deg);
+        top: 16px;
+      }
+    }
+    .css-i6bazn > button {
+      font-weight: 600 !important;
+      font-size: 14px !important;
+      padding: 1rem 2rem !important;
+      height: 100%;
+    }
+  }
+  //
+  .sidemenuGroups {
+    background: none;
+    margin-bottom: 0;
+    label {
+      position: relative;
+      display: inline-block;
+      padding-left: 30px;
+      vertical-align: middle;
+      margin: 0 0 0 10px;
+      min-width: 100%;
+      font-size: 16px;
+      font-weight: 400;
+    }
+    input {
+      position: absolute;
+      margin: 6px 0 0 -29px;
+      line-height: normal;
+    }
+    .sidemenuGroup {
+      color: $black;
+      font-size: 16px;
+      font-weight: 500;
+      margin-bottom: 0;
+      transition: 0.3s ease all;
+      &:after {
+        color: $link-color;
+        font-weight: 600;
+      }
+      &:hover, &:active, &:focus {
+        background: $blue;
+        color: white;
+        transition: 0.1s ease all;
+        &:after {
+          color: white;
+        }
+      }
+    }
+  }
+  //sidebar title
+  .contentSideMenuHead {
+    padding: 0 1rem;
+    font-weight: 800;
+    font-size: 24px;
+  }
+  //data wrapper
+  .highchartContainer {
+    padding: 1rem 2rem 1rem 0;
+  }
+  //reporting year wrapper
+  .reportingYearsContainer {
+    button {
+      padding: 5px !important;
+      color: $grey-dark !important;
+      i {
+        font-size: 1em;
+      }
+    }
+    .reportingYearsText {
+      font-weight: 600;
+    }
+  }
+  //department buttons
+  #main #analysis-tool-root .css-2imjyh {
+    button {
+      color: white;
+      background-color: $blue;
+      padding: 0.5rem 2rem 0.5rem 1rem;
+      margin: 0 0 12px 5px;
+      // box-shadow: 0px 11px 37px -12px rgba(133,133,133,1);
+      box-shadow: 0px 0px 150px 0px #dddee6;
+      font-size: 1rem;
+      font-weight: 500;
+      white-space: normal;
+      word-wrap: break-word;
+      transition: all ease 0.3s;
+      &:after {
+        top: 20px;
+        right: 10px;
+        font-size: 22px;
+      }
+      &:hover, &:active, &:focus {
+        color: $black;
+        background-color: $grey-light;
+        transition: all ease 0.1s;
+      }
+    }
+  }
+  //sidebar buttons
+  #main #analysis-tool-root button {
+    padding: 1rem;
+    height: auto;
+    color: $link-color;
+    &:hover, &:active, &:focus {
+      color: $black;
+      background-color: white;
+    }
+
+    // active state for datasets
+    &.active,
+    &.css-co0k3h {
+      background: linear-gradient(45deg, #d7dae0, #e4e6eb) !important;
+      color: black !important;
+      font-weight: $bold;
+    }
+  }
+
+  //sidebar nested buttons
+  #main #analysis-tool-root .ReactCollapse--content button {
+    padding: 0.5rem 0.5rem 0.5rem 3rem;
+    margin: 0;
+    font-size: 14px;
+  }
+  button[disabled], html input[disabled] {
+    color: transparentize($link-color, 0.5) !important;
+    &:hover, &:active, &:focus {
+      background-color: transparent !important;
+    }
+  }
+  //filter by
+  .tagSelectorContainer {
+    padding: 1rem;
+    border: 1px solid $grey-light;
+    background: white;
+    margin-top: 1rem;
+    label {
+      font-weight: 100;
+      margin-right: 10px;
+      font-size: 16px;
+    }
+    > span {
+      margin-left: 15px;
+    }
+  }
+  .tag-drop-down__control {
+    transition: all ease 0.3s;
+    padding: 5px;
+    border-radius: 35px;
+    color: #FFF;
+    overflow: hidden;
+    min-width: 150px;
+    max-width: 200px;
+    background: $blue;
+  }
+  .tag-drop-down__single-value, .tag-drop-down__placeholder {
+    color: white;
+    width: 100px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .tag-drop-down__indicator {
+    padding: 0;
+    svg {
+      fill: white;
+      vertical-align: sub;
+    }
+  }
+  .tagsSelectorSelect {
+    display: inline-block;
+  }
+
+  //charts
+  .highchartContainer, .queryContent {
+    box-shadow: 0px 0px 150px 0px #dddee6;
+  }
+  .css-cxmp86 .highchartContainer {
+    box-shadow: none;
+  }
+  .chartMenuContainer {
+    background: white;
+    margin-top: 25px;
+    padding: 30px;
+    position: relative;
+  }
+  .chartMenuColumnDropdownContainer {
+    //columns drop down
+    margin-top: 1rem;
+    position: relative;
+    &:after {
+      font-family: FontAwesome;
+      content: '';
+      position: absolute;
+      right: 10px;
+      top: 7px;
+      display: block;
+      color: $blue;
+      font-size: 20px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+  }
+  //chart type labels
+  .chartMenuType, .chartMenuXFlip {
+    padding: 0 !important;
+    margin: 16px 0 16px 10px;
+    height: 40px !important;
+  }
+  .selectedColumnsSelectedText {
+    margin-bottom: 1rem;
+  }
+  .chartMenuClear {
+    width: auto;
+    margin: 16px 5px 16px 0 !important;
+    height: 40px !important;
+    padding: 0 1rem !important;
+  }
+  .css-9nzia0::after {
+    content: '';
+  }
+  .highcharts-axis-labels {
+      transform: translateY(5px);
+    //chart labels
+    text {
+      font-size: 13px !important;
+      color: $grey-dark !important;
+      fill: $grey-dark !important;
+    }
+  }
+
+}
+// .section-find-data .contentBodyContainer {
+//   .queryContent {
+//     opacity: 0.5;
+//   }
+//   &.entity_active .queryContent {
+//     opacity: 1;
+//   }
+// }

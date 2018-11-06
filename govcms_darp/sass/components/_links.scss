@@ -1,0 +1,37 @@
+/**
+* Component: Links
+*
+* Link styling - more specific to general
+*/
+a:visited {
+  color: $link-color;
+}
+
+%link-internal__icon {
+  content: '';
+  background-image: svg-load('../images/icon-arrow-long.svg', fill=$blue);
+  background-repeat: no-repeat;
+  vertical-align: middle;
+  display: inline-block;
+  margin-left: 10px;
+  height: 10px;
+  width: 1.25rem;
+}
+
+.more-link, %more-link {
+  > a {
+    line-height: 1;
+    &:after {
+      @include transition;
+      @extend %link-internal__icon;
+      transform: translateX(0);
+      -ms-transform: translateX(0);
+    }
+    &:hover {
+      &:after {
+        transform: translateX(5px);
+        background-image: svg-load('../images/icon-arrow-long.svg', fill=$blue-light);
+      }
+    }
+  }
+}

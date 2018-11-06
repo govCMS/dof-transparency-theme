@@ -1,0 +1,140 @@
+/**
+* Pagination
+*
+* Pagination general styling and for reports
+*/
+
+.item-list {
+	overflow: visible;
+	.pager {
+		padding: 0;
+		text-align: left;
+		overflow: auto;
+		padding: 1rem 0;
+		li {
+			float: left;
+			list-style: none;
+			border: 1px solid $border-color;
+			padding: 0;
+			margin: 0 0 3px -1px;
+      a:focus {
+        background: $action-color;
+  			border-color: $action-color;
+  			color: $white;
+  			text-decoration: none;
+        color: $white;
+      }
+      &:first-child {
+        margin: 0 0 3px 0;
+      }
+		}
+		a {
+			text-transform: uppercase;
+			display: inline-block;
+      padding: 5px 12px;
+			@include font-size($base-font-size - 4);
+		}
+		a:hover, &:focus {
+			background: $action-color;
+			border-color: $action-color;
+			color: $white;
+			text-decoration: none;
+		}
+		a:active {
+			background: $link-color-hover;
+		}
+		.pager-ellipsis,
+		.pager-current {
+			@include font-size($base-font-size - 4);
+			background: $blue-dark;
+			border: 1px solid $border-color;
+			color: $white;
+			padding: 5px 12px;
+		}
+		.pager-ellipsis {
+			background: $white;
+			color: $primary-color;
+		}
+	}
+}
+
+//up next and previous
+.view-next-previous-navigation {
+	@include from(1375px) {
+		float: none;
+		margin: auto;
+	}
+	.views-row {
+		padding: 0 20px 20px !important;
+	}
+	.views-field {
+		width: 50%;
+		float: left;
+		a {
+			background: white;
+			display: block;
+			position: relative;
+			height: 100%;
+		  display: flex;
+		  flex-wrap: wrap;
+			align-content: center;
+			border-top: solid 3px $blue-darkest;
+			color: $link-color !important;
+			&:hover, &:active, &:focus {
+				background: $blue-darkest;
+				color: white !important;
+				&:after {
+					background: svg-load("../images/icon-left-arrow.svg", fill=$white);
+					background-repeat: no-repeat;
+				}
+			}
+			&:after {
+				content: '';
+				display: block;
+				height: 20px;
+				width: 50px;
+				background: svg-load("../images/icon-left-arrow.svg", fill=$link-color-hover);
+				background-repeat: no-repeat;
+				position: absolute;
+				bottom: 50%;
+				transform: translateY(50%);
+			}
+		}
+		&:first-child a {
+			padding: 0.5rem 2rem 0.5rem 3rem;
+			text-align: right;
+			justify-content: flex-end;
+			border-right: solid 1px $grey-light;
+			&:before {
+				content: 'Previous';
+				display: block;
+				font-weight: bold;
+				margin: 0 0 0 6rem;
+			}
+			&:after {
+				left: 15px;
+			}
+		}
+		&:last-child a {
+			padding: 0.5rem 3rem 0.5rem 2rem;
+			text-align: left;
+			justify-content: flex-start;
+			&:before {
+				content: 'Up next';
+				display: block;
+				font-weight: bold;
+				margin: 0 6rem 0 0;
+			}
+			&:after {
+				transform: rotate(180deg) translateY(-50%);
+				right: 15px;
+			}
+		}
+	}
+	.views-row .views-field-title-1 {
+		margin-top: 0;
+		* {
+			color: $link-color;
+		}
+	}
+}

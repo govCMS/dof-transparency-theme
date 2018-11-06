@@ -1,0 +1,129 @@
+//financial ratios
+.section-financial-ratios #content {
+  max-width: 1200px;
+  margin: auto;
+  float: none;
+}
+.ratio-tool {
+  #content {
+    max-width: 1200px;
+  }
+  .container {
+    position: relative;
+  }
+  // wraps whole tool code
+  .appBody {
+    overflow: visible;
+    max-width: 930px;
+    margin: auto;
+    padding: 30px 0;
+    > p {
+      font-weight: 400;
+    }
+  }
+  .queryContainer, .contentContainer {
+    //chart wrapper
+    box-shadow: 0px 6px 55px -23px rgba(133,133,133,1);
+  }
+  .contentContainer {
+    padding: 70px 60px;
+  }
+  //underlined button
+  .css-1kl67zc button {
+    padding: 0 0 10px;
+    height: 100%;
+    font-weight: 700;
+    font-size: 1.4rem;
+    line-height: 1.5rem;
+  }
+  //non underlined button
+  .css-1paltm3 button {
+    border-bottom: 3px solid transparent;
+    height: 100%;
+    padding: 9px 0;
+    font-size: 1.4rem;
+  }
+  //report years radios
+  .yearSelectorYear::after {
+    top: -2px;
+    left: 5px;
+  }
+  button.yearSelectorYear {
+    font-family: inherit;
+    color: $grey;
+    font-size: 14px;
+  }
+  .yearSelectorContainer {
+    padding-left: 20px;
+  }
+  .yearSelectorText {
+    font-size: 16px;
+    font-weight: 400;
+  }
+  .contentResult {
+    flex: 1;
+  }
+  .contentEntity {
+    line-height: 40px;
+  }
+  //report cover
+  .css-z2iq5f {
+    border-radius: 50%;
+    height: 200px;
+    background-color: lighten($grey-light,5%);
+  }
+  .contentRow.first {
+    border-bottom: none;
+  }
+  .contentOriginal {
+    height: 100%;
+    transform: translateY(25%);
+  }
+  //search bar
+  .css-v6h08c, .css-1l7pb3t {
+    padding: 0 0 0 40px;
+    margin-bottom: 1rem;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  //light grey overrides
+  .contentYear, .contentRowLabel {
+    color: $grey;
+    font-size: 16px;
+    font-weight: 400;
+    b {
+      font-weight: 700;
+      font-size: 18px;
+    }
+  }
+  //money
+  .contentRowData {
+    font-weight: 400;
+  }
+  //percent
+  .ejkd74c6 b {
+    font-size: 35px;
+    font-weight: 700;
+  }
+  //view original data button
+  .contentOriginalButton {
+    height: auto;
+    @include transition;
+    background-position: center right 20px;
+    background: svg-load('../images/icon-arrow-long.svg', fill=$link-color) no-repeat center right 20px;
+    background-size: 15px 15px;
+    border-color: $grey-light;
+    color: $link-color;
+    &:hover, &:active, &:focus {
+      color: $black;
+      background-color: darken($blue-lightest, 10%);
+      transition: all ease 0.1s;
+      background: auto;
+      background: svg-load('../images/icon-arrow-long.svg', fill=$link-color) no-repeat center right 15px;
+      background-size: 15px 15px;
+    }
+    b:after {
+      display: none;
+    }
+  }
+}

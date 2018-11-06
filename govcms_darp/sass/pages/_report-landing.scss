@@ -1,0 +1,223 @@
+/**
+* Page: Report landing
+*
+* Report landing page including TOC and overview
+*/
+
+.node-type-annual-report {
+  #main {
+    @include from(desktop-xl) {
+      //center content
+      margin-left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+    }
+  }
+  #content {
+    position: relative;
+    max-width: none;
+    min-height: 350px;
+  }
+  aside {
+    margin: 0 35px !important;
+    @include from(desktop) {
+      lost-column: 1/2;
+      float: left !important;
+      clear: both !important;
+      width: calc(49.995% - 65px);
+      .region-sidebar-second {
+        padding: 0;
+      }
+      .menu-block-wrapper {
+        padding: 0 2rem 0 0;
+      }
+    }
+    //counter for image scale
+    @include below(desktop) {
+      width: calc(70% - 80px);
+      @include menu-transition;
+    }
+    @include to(tablet-l) {
+      lost-column: 1/1;
+      clear: both;
+      float: none !important;
+      margin: auto !important;
+      z-index: 10;
+      position: relative;
+      * {
+        float: none;
+      }
+    }
+    .block-ar-tree {
+      float: right;
+    }
+  }
+  //banner
+  .group-header {
+    .field-name-report-toc-banner {
+      @include from(desktop) {
+        margin: 0 30px 0 15px;
+      }
+    }
+  }
+  #block-views-annual-report-header-block-2 {
+    min-height: 280px;
+    margin-bottom: 0;
+  }
+  //group left
+  .group-left {
+    margin-top: 0;
+    @include from(tablet-l) {
+      margin-top: $banner-height/2 + 50px;
+    }
+  }
+  //group right report image
+  .group-right {
+    margin-top: 175px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 50%;
+    z-index: 1;
+    @include below(tablet-l) {
+      width: 100%;
+      float: none;
+      position: relative;
+      margin-top: 2rem;
+    }
+    .field-name-field-ar-image {
+      clear: both;
+      float: left;
+      @include below(tablet-l) {
+        margin: auto;
+        float: none;
+      }
+      @include book-shadow;
+      //shadow positioning
+      &:before {
+        @include below(tablet-l) {
+          width: 106%;
+          height: 130%;
+        }
+        @include from(desktop) {
+          width: 117%;
+          height: 129%;
+        }
+        @include from(desktop-xl) {
+          width: 130%;
+        }
+        @include between(1025px, 1200px) {
+          width: 108%;
+        }
+        @include between(1201px, 1400px) {
+          width: 117%;
+          height: 129%;
+        }
+        @include between(1400px, 1490px) {
+          width: 120%;
+        }
+        @include between(1490px, 1545px) {
+          width: 125%;
+        }
+      }
+      &:after {
+        margin-bottom: -23px;
+        margin-right: 27px;
+      }
+      //report image
+      img {
+        border: 1px solid transparentize($blue-lightest, 0.75);
+        margin: auto;
+        @include transition;
+        @include from(desktop) {
+          width: 65%;
+          float: right;
+          margin-right: 3rem;
+        }
+        @include from(desktop-xl) {
+          width: 90%;
+          max-width: 525px;
+        }
+        @include between(1201px, 1545px) {
+          width: 80%;
+        }
+        @include below(tablet-l) {
+          width: 60%;
+        }
+        @include between(1025px, 1490px) {
+          margin-right: 5rem;
+        }
+      }
+    }
+  }
+  //footer group content
+  .group-footer {
+    clear: both;
+    @include below(tablet-l) {
+      margin-top: 3rem;
+    }
+    @include from(desktop) {
+      max-width: 50%;
+    }
+    .field-name-body {
+      @include from(desktop-xl) {
+        padding: 0 3rem 0 0;
+      }
+    }
+  }
+  //hide footer if has no content
+  .group-footer.empty-div {
+	   display: none;
+  }
+}
+
+//Logged in styles to counter for drupal admin content
+.logged-in.node-type-annual-report, .logged-in.node-type-annual-report-page {
+  .tabs-primary {
+    position: absolute;
+    margin-top: 200px;
+    @include below(tablet-l) {
+      margin-top: 295px;
+    }
+  }
+  @include from(tablet-l) {
+    .group-left {
+      margin-top: $banner-height/2 + 50px + $tabs-primary-height;
+    }
+  }
+  .group-right {
+    @include below(tablet-l) {
+      margin-top: 50px;
+    }
+  }
+}
+
+//Not logged in styling
+.not-logged-in {
+  .group-footer {
+    padding-top: 3rem;
+  }
+}
+
+//bottom wrapper
+.ds-2col-stacked .bottom-wrapper {
+  max-width: 1300px;
+  margin: auto;
+  &:after {
+    clear:both;
+    content:" ";
+    display:block;
+  }
+}
+
+//Page specific global overrides
+.node-type-annual-report, .node-type-annual-report-page {
+  #content {
+    @include below(tablet) {
+      padding: 0;
+      .group-footer {
+        padding: 0 $gutter 0 $gutter;
+      }
+    }
+  }
+}
